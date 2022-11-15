@@ -31,6 +31,10 @@ public class Console {
 		return keyboard.nextInt();
 	}
 
+	public static void println(Object o) {
+		out.println( o.toString() );
+	}
+	
 	public static void println(String msg) {
 		out.println( msg );
 	}
