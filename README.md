@@ -4,3 +4,5 @@ A collection of Java Utilities that includes things such as
 2) Very basic File utilities: Write, Read
 3) A Logger Class.
 4) A few classes to check arguments: IndexChecks, StateChecks
+# Data Structures
+**Graph, BSTree, AVLTree, HashTable, PriorityQueue
