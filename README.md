@@ -1,5 +1,5 @@
 # JavaUtil
-A collection of Java Utilities that includes things such as
+A collection of Java Utilities such as
 1) Collections: ArrayLists, Linked Lists, Stacks, Queues.
 2) Very basic File utilities: Write, Read
 3) A Logger Class.
