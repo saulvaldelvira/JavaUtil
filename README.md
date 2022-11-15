@@ -5,5 +5,5 @@ A collection of Java Utilities that includes things such as
 3) A Logger Class.
 4) A few classes to check arguments: IndexChecks, StateChecks
 
-**Data Structures**
+**Data Structures** <br>
 Graph, BSTree, AVLTree, HashTable, PriorityQueue
