@@ -11,8 +11,8 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import saulv.util.collections.LinkedList;
-import saulv.util.collections.List;
+import saulv.collections.LinkedList;
+import saulv.collections.List;
 
 public abstract class FileUtil {
 

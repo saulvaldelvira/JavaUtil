@@ -4,7 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-import saulv.util.tree.avl.*;
+import saulv.tree.avl.*;
 
 
 /**
@@ -34,7 +34,7 @@ public class OpenHashTable<T extends Comparable<T>> extends AbstractHash<T> {
 		minlf = MINIMUN_LF;
 		maxlf = MAXIMUN_LF;
 		if(!isPositivePrime(tam))	tam=nextPrimeNumber(tam);
-		tabla = (AVLTree<T>[]) Array.newInstance(saulv.util.tree.avl.AVLTree.class, tam);
+		tabla = (AVLTree<T>[]) Array.newInstance(saulv.tree.avl.AVLTree.class, tam);
 		for(int i=0; i<tam; i++)
 			tabla[i] = new AVLTree<T>();
 	}
@@ -51,7 +51,7 @@ public class OpenHashTable<T extends Comparable<T>> extends AbstractHash<T> {
 		minlf = min;
 		maxlf = max;
 		if(!isPositivePrime(tam))	tam=nextPrimeNumber(tam);
-		tabla = (AVLTree<T>[]) Array.newInstance(saulv.util.tree.avl.AVLTree.class, tam);
+		tabla = (AVLTree<T>[]) Array.newInstance(saulv.tree.avl.AVLTree.class, tam);
 		for(int i=0; i<tam; i++)
 			tabla[i] = new AVLTree<T>();
 	}
