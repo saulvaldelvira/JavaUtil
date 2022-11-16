@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import saulv.tree.bst.BSTree;
 
 // Test de prueba si el método removeNode devuelve
 // la raiz

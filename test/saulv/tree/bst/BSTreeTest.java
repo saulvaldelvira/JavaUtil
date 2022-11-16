@@ -5,8 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import saulv.tree.Persona;
-import saulv.tree.bst.BSTNode;
-import saulv.tree.bst.BSTree;
 
 public class BSTreeTest {
 

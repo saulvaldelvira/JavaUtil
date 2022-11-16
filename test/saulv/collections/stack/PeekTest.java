@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import saulv.collections.setting.Settings;
-import saulv.collections.stack.AbstractStack;
 /**
  * @author Saúl Valdelvira Iglesias
  * @version 29/03/2021
