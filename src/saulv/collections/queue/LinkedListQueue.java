@@ -1,6 +1,6 @@
 package saulv.collections.queue;
 
-import saulv.collections.LinkedList;
+import saulv.collections.list.LinkedList;
 
 /** 
  * @author Saúl Valdelvira Iglesias

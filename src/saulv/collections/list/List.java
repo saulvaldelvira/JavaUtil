@@ -1,4 +1,6 @@
-package saulv.collections;
+package saulv.collections.list;
+
+import saulv.collections.Collection;
 
 /**
  * An ordered collection (also known as a <i>sequence</i>). The user of this

@@ -1,6 +1,6 @@
 package saulv.collections.queue;
 
-import saulv.collections.List;
+import saulv.collections.list.List;
 import saulv.util.checks.StateChecks;
 
 /** 

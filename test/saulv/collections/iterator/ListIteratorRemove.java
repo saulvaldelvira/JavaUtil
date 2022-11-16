@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 import org.junit.Test;
 
-import saulv.collections.List;
+import saulv.collections.list.List;
 /** 
  * @author Saúl Valdelvira Iglesias
  * @version 28/03/2021

@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import saulv.collections.List;
+import saulv.collections.list.List;
 
 
 /** 

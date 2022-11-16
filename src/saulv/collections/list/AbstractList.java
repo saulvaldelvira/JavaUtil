@@ -1,4 +1,4 @@
-package saulv.collections;
+package saulv.collections.list;
 
 import saulv.util.checks.ArgumentChecks;
 

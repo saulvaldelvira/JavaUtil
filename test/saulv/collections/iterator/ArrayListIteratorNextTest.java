@@ -4,7 +4,7 @@ package saulv.collections.iterator;
 
 import org.junit.Before;
 
-import saulv.collections.ArrayList;
+import saulv.collections.list.ArrayList;
 
 /** 
  * @author Saúl Valdelvira Iglesias

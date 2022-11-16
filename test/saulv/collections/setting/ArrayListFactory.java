@@ -1,7 +1,7 @@
 package saulv.collections.setting;
 
-import saulv.collections.ArrayList;
-import saulv.collections.List;
+import saulv.collections.list.ArrayList;
+import saulv.collections.list.List;
 
 public class ArrayListFactory<T> implements ListFactory<T> {
 

@@ -8,7 +8,7 @@ package saulv.collections.iterator;
 
 import org.junit.Before;
 
-import saulv.collections.LinkedList;
+import saulv.collections.list.LinkedList;
 
 /** 
  * @author Saúl Valdelvira Iglesias

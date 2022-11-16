@@ -5,6 +5,9 @@ package saulv.collections;
 
 import java.util.Comparator;
 
+import saulv.collections.list.ArrayList;
+import saulv.collections.list.List;
+
 
 
 /**

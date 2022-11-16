@@ -3,7 +3,7 @@
  */
 package saulv.collections.stack;
 
-import saulv.collections.ArrayList;
+import saulv.collections.list.ArrayList;
 
 /** 
  * @author Saúl Valdelvira Iglesias

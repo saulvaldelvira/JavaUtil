@@ -3,7 +3,7 @@
  */
 package saulv.collections.stack;
 
-import saulv.collections.List;
+import saulv.collections.list.List;
 import saulv.util.checks.StateChecks;
 
 /** 

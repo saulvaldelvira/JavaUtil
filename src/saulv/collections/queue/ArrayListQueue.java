@@ -1,6 +1,6 @@
 package saulv.collections.queue;
 
-import saulv.collections.ArrayList;
+import saulv.collections.list.ArrayList;
 
 /** 
  * @author Saúl Valdelvira Iglesias
