@@ -8,8 +8,6 @@ import java.util.Comparator;
 import saulv.collections.list.ArrayList;
 import saulv.collections.list.List;
 
-
-
 /**
  * @author Saúl Valdelvira Iglesias
  * @version 20/04/2021
