@@ -1,6 +1,9 @@
 package saulv.collections.list;
 
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import saulv.collections.Util;
 import saulv.util.checks.ArgumentChecks;
@@ -25,6 +28,14 @@ public abstract class AbstractList<E> implements List<E>{
 	}
 
 	/**
+	 * Añade el objeto pasado como parámetro a la ultima posicion de la lista
+	 * 
+	 * @param o, de tipo Object
+	 */
+	@Override
+	public abstract boolean add(E element);
+	
+	/**
 	 * Devuelve true si está vacía, es decir, si no almacena ningún objeto 
 	 * 
 	 * @return truo o false, de tipo boolean 
@@ -43,7 +54,7 @@ public abstract class AbstractList<E> implements List<E>{
 	@Override
 	public boolean contains(Object o) {
 		ArgumentChecks.isNotNull(o);
-		return indexOf(Util.castToE(o))!=- 1;
+		return indexOf(Util.castAs(o))!=- 1;
 	}
 
 	/**
@@ -56,7 +67,7 @@ public abstract class AbstractList<E> implements List<E>{
 	public int indexOf(Object o) {
 		ArgumentChecks.isNotNull(o);
 		for(int i=0; i<this.size();i++) {
-			if(this.get(i).equals(Util.castToE(o))) {
+			if(this.get(i).equals(Util.castAs(o))) {
 				return i;
 			}
 		}
@@ -87,6 +98,102 @@ public abstract class AbstractList<E> implements List<E>{
 				return false;
 		}
 		return true;
+	}
+	
+	@Override
+	public Object[] toArray() {
+		Object[] result = new Object[size()];
+		for(int i=0; i<size(); i++)
+			result[i]=get(i);
+		return result;
+	}
+	
+	@Override
+	public <T> T[] toArray(T[] a) {
+		T[] result;
+		if(a.length<size())
+			result = Util.castAs(new Object[size()]);
+		else result = a;
+		
+		for(int i=0; i<size(); i++)
+			result[i] = Util.castAs(get(i));
+		
+		if(result.length>size())
+			result[size()] = null;
+		return result;
+		
+	}
+	
+	@Override
+	public boolean containsAll(Collection<?> c) {
+		Iterator<?> iterator = c.iterator();
+		while(iterator.hasNext())
+			if(!contains(iterator.next()))
+				return false;
+		return true;
+	}
+
+	@Override
+	public boolean addAll(Collection<? extends E> c) {
+		Iterator<?> iterator = c.iterator();
+		while(iterator.hasNext())
+			add(Util.castAs(iterator.next()));
+		return true;
+	}
+
+	//TODO: For now it adds the backwards
+	@Override
+	public boolean addAll(int index, Collection<? extends E> c) {
+		Iterator<?> iterator = c.iterator();
+		while(iterator.hasNext())
+			add(index, Util.castAs(iterator.next()));
+		return true;
+	}
+
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		Iterator<?> iterator = c.iterator();
+		while(iterator.hasNext())
+			remove(iterator.next());
+		return true;
+	}
+
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		for(int i=0; i<size(); i++)
+			if(!c.contains(get(i)))
+				remove(i);
+		return true;
+	}
+	
+	@Override
+	public int lastIndexOf(Object o) {
+		ArgumentChecks.isNotNull(o);
+		int result = -1;
+		for(int i=0; i<this.size();i++) {
+			if(this.get(i).equals(Util.castAs(o))) {
+				result = i;
+			}
+		}
+		return result;
+	}
+	
+	@Override
+	public ListIterator<E> listIterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ListIterator<E> listIterator(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<E> subList(int fromIndex, int toIndex) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

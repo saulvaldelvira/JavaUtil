@@ -24,7 +24,7 @@ public class AbstractQueue<E> implements Queue<E> {
 	 */
 	@Override
 	public boolean add(Object element) {
-		return list.add(Util.castToE(element));		
+		return list.add(Util.castAs(element));		
 	}
 
 	/**

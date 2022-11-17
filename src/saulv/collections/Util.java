@@ -6,7 +6,7 @@ public class Util {
 	 * @return 
 	 */
 	@SuppressWarnings("unchecked")
-	public static <E> E castToE(Object o) {
+	public static <E> E castAs(Object o) {
 		return (E) o;
 	}
 }

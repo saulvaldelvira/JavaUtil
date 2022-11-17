@@ -1,9 +1,7 @@
 package saulv.collections.list;
 
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import saulv.collections.Util;
 import saulv.util.checks.ArgumentChecks;
@@ -59,14 +57,17 @@ public class ArrayList<E> extends AbstractList<E> implements List<E> {
 	@Override
 	public boolean add(E element) {
 		ArgumentChecks.isTrue(element!=null, "El parámetro element no puede ser null");
-		if (size() >= elements.length) {
-			moreMemory(size()+1);
-		}
+		checkMemory();
 		elements[size()] = element;
 		numberOfElements++;
 		return true;
 	}
 
+	private void checkMemory() {
+		if (size() >= elements.length)
+			moreMemory(size()+1);
+	}
+	
 	/**
 	 * Aumenta el tamaño de elements en caso de que hiviera falta contener mas 
 	 * Objetos en el
@@ -91,10 +92,10 @@ public class ArrayList<E> extends AbstractList<E> implements List<E> {
 	@Override
 	public boolean remove(Object o) {
 		ArgumentChecks.isNotNull(o);
-		if(indexOf(Util.castToE(o))==-1) {
+		if(indexOf(Util.castAs(o))==-1) {
 			return false;
 		}else{
-			remove(indexOf(Util.castToE(o)));
+			remove(indexOf(Util.castAs(o)));
 			return true;
 		}
 		
@@ -149,14 +150,13 @@ public class ArrayList<E> extends AbstractList<E> implements List<E> {
 	 */
 	@Override
 	public void add(int index, E element) {
-		ArgumentChecks.isTrue(element!=null, "El parámetro element no puede ser nulo");
+		ArgumentChecks.isNotNull(element);
 		IndexChecks.isTrue(!(index < 0 || index > size()), "El parametro index debe estar en los limites de la lista");
-		
-		for(int i=size(); i>index; i--) {
-			elements[i] = elements[i-1];
-		}
-		elements[index] = element;
 		numberOfElements++;
+		checkMemory();
+		for(int i=index; i<size(); i++)
+			elements[i] = elements[i+1];
+		elements[index] = element;
 
 	}
 
@@ -243,72 +243,5 @@ public class ArrayList<E> extends AbstractList<E> implements List<E> {
 		}
 		
 	}
-
-	@Override
-	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T> T[] toArray(T[] a) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public boolean containsAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean addAll(Collection<? extends E> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean addAll(int index, Collection<? extends E> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean removeAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean retainAll(Collection<?> c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public int lastIndexOf(Object o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public ListIterator<E> listIterator() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ListIterator<E> listIterator(int index) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<E> subList(int fromIndex, int toIndex) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 
 }
