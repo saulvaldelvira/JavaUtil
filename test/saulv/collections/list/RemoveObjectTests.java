@@ -2,6 +2,9 @@ package saulv.collections.list;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -117,14 +120,18 @@ public class RemoveObjectTests {
 	* WHEN se intenta eliminar un null
 	* THEN salta IllegalArgumentException
 	*/
-	@Test 
-	(expected = IllegalArgumentException.class)
+	@Test
 	public void nullParameter() {
 		
 		list.add(0, test);
 		list.add(0, test2);
 		list.add(0, test3);
 		
-		list.remove(null);
+		try {
+			list.remove(null);
+			fail();
+		}catch(NullPointerException e) {
+			
+		}
 	}
 }

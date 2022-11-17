@@ -2,6 +2,8 @@ package saulv.collections.stack;
 
 import static org.junit.Assert.*;
 
+import java.util.EmptyStackException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -33,7 +35,7 @@ AbstractStack<String> stack;
 	 * THEN lanza una IllegalStateException
 	 */
 	@Test
-	(expected=IllegalStateException.class)
+	(expected=EmptyStackException.class)
 	public void emptyTest() {
 		stack.peek();
 	}

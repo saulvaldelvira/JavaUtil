@@ -11,6 +11,8 @@ import saulv.collections.list.LinkedList;
  */
 public class LinkedListStack<T> extends AbstractStack<T>{
 
+	private static final long serialVersionUID = 1L;
+
 	public LinkedListStack() {
 		list = new LinkedList<T>();
 	}

@@ -10,9 +10,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
 import saulv.collections.list.LinkedList;
-import saulv.collections.list.List;
 
 public abstract class FileUtil {
 

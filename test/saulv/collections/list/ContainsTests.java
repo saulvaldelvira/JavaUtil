@@ -1,6 +1,9 @@
 package saulv.collections.list;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
+
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -83,7 +86,7 @@ public class ContainsTests {
 	 * THEN: lanza una excepción
 	 */
 	@Test
-	(expected= IllegalArgumentException.class)
+	(expected= NullPointerException.class)
 	public void nullElementTest() {
 			list.contains(null);		
 	}
@@ -94,12 +97,16 @@ public class ContainsTests {
 	 * THEN: lanza una excepción
 	 */
 	@Test
-	(expected= IllegalArgumentException.class)
 	public void nullElementInListTest() {
 		list.add(  "A");
 		list.add(  "B");
 		list.add(  "C");
-		list.contains(null);
+		try {
+			list.contains(null);
+			fail();
+		}catch (NullPointerException e) {
+			
+		}
 		
 	}
 	

@@ -1,8 +1,9 @@
 package saulv.collections.setting;
 
 
+import java.util.List;
+
 import saulv.collections.list.LinkedList;
-import saulv.collections.list.List;
 
 public class LinkedListFactory<T> implements ListFactory<T> {
 

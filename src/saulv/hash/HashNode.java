@@ -1,4 +1,4 @@
-package saulv.util.hash;
+package saulv.hash;
 
 public class HashNode <T> {
 	public static final int BORRADO = -1;

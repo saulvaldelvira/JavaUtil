@@ -6,11 +6,11 @@ package saulv.collections.iterator;
 import static org.junit.Assert.*;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.junit.Test;
 
-import saulv.collections.list.List;
 
 
 /** 

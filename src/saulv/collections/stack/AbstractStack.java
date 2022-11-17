@@ -3,30 +3,36 @@
  */
 package saulv.collections.stack;
 
-import saulv.collections.list.List;
 import saulv.util.checks.StateChecks;
+
+import java.util.EmptyStackException;
+import java.util.List;
+import java.util.Stack;
 
 /** 
  * @author Saúl Valdelvira Iglesias
  * @verison 28/03/2021
  */
-public class AbstractStack<T> implements Stack<T>{
+public class AbstractStack<E> extends Stack<E>{
 
-	protected List<T> list;
+	private static final long serialVersionUID = 1L;
+	protected List<E> list;
 	
 	/**
 	 * Añade un elemento dado en la parte superior de la pila 
 	 * @param element, de tipo Object 
+	 * @return 
 	 */
-	public void push(T element) {
+	public E push(E element) {
 		list.add(element);
+		return element;
 	}
 	
 	/**
 	 * Elimina y devuelve el elemento en la parte superior de la pila
 	 * @return el objeto, de tipo Object  
 	 */
-	public Object pop() {
+	public E pop() {
 		return list.remove(list.size()-1);
 	}
 	
@@ -34,8 +40,8 @@ public class AbstractStack<T> implements Stack<T>{
 	 * 	Devuelve el elemento en la parte superior de la pila
 	 * @return el objeto, de tipo Object  
 	 */
-	public Object peek() {
-		StateChecks.isTrue(!isEmpty());
+	public E peek() {
+		StateChecks.isFalse(isEmpty(), new EmptyStackException());
 		return list.get(list.size()-1);
 	}
 	

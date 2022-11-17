@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import saulv.util.hash.ClosedHashTable;
 
 
 public class ClosedHashTableConRedispersionTest {

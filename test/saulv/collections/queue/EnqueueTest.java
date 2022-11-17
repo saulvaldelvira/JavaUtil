@@ -37,7 +37,7 @@ public class EnqueueTest<T> {
 	 */
 	@Test
 	public void emptyListTest() {
-		queue.enqueue("hola");
+		queue.add("hola");
 		assertEquals(1, queue.size());
 		assertEquals("hola", queue.peek());
 	}
@@ -49,15 +49,15 @@ public class EnqueueTest<T> {
 	 */
 	@Test
 	public void elementsInListTest() {
-		queue.enqueue("hola");
-		queue.enqueue("que");
-		queue.enqueue("tal");
+		queue.add("hola");
+		queue.add("que");
+		queue.add("tal");
 		
 		assertEquals(3, queue.size());
 		assertEquals("hola", queue.peek());
-		queue.dequeue();
+		queue.remove();
 		assertEquals("que", queue.peek());
-		queue.dequeue();
+		queue.remove();
 		assertEquals("tal", queue.peek());
 	}
 

@@ -5,6 +5,8 @@ package saulv.collections.queue;
 
 import static org.junit.Assert.*;
 
+import java.util.NoSuchElementException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -39,33 +41,33 @@ public class DequeueTest {
 	 * THEN lanza una IndexOutOfBoundsException
 	 */
 	@Test
-	(expected= IndexOutOfBoundsException.class)
+	(expected= NoSuchElementException.class)
 	public void emptyTest() {
-		queue.dequeue();
+		queue.remove();
 	}
 	
 	/**
 	 * GIVEN una cola con un solo elemento 
-	 * WHEN se llama al método dequeue
+	 * WHEN se llama al método remove
 	 * THEN lo elimina y la lista queda vacía
 	 */
 	@Test
 	public void oneElementTest() {
-		queue.enqueue("Hola");
-		queue.dequeue();
+		queue.add("Hola");
+		queue.remove();
 		assertEquals(0, queue.size());
 	}
 
 	/**
 	 * GIVEN una cola con un varios elementos
-	 * WHEN se llama al método dequeue
+	 * WHEN se llama al método remove
 	 * THEN elimina el primer elemento y reduce en uno el tamaño 
 	 */
 	@Test
 	public void multipleElementTest() {
-		queue.enqueue("abra");
-		queue.enqueue("kadabra");
-		queue.dequeue();
+		queue.add("abra");
+		queue.add("kadabra");
+		queue.remove();
 		assertEquals(1, queue.size());
 		assertEquals("kadabra", queue.peek());
 	}

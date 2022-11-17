@@ -12,6 +12,8 @@ import saulv.collections.list.ArrayList;
  */
 public class ArrayListStack<T> extends AbstractStack<T>{
 
+	private static final long serialVersionUID = 1L;
+
 	public ArrayListStack() {
 		list = new ArrayList<T>();
 	}

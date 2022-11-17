@@ -2,6 +2,7 @@ package saulv.collections.queue;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,7 +36,6 @@ AbstractQueue<String> queue;
 	 * THEN lanza una IllegalStateException
 	 */
 	@Test
-	(expected=IllegalStateException.class)
 	public void emptyTest() {
 		queue.peek();
 	}
@@ -47,7 +47,7 @@ AbstractQueue<String> queue;
 	 */
 	@Test
 	public void oneElementTest() {
-		queue.enqueue("Saúl");
+		queue.add("Saúl");
 		assertEquals("Saúl", queue.peek());
 	}
 	
@@ -58,9 +58,9 @@ AbstractQueue<String> queue;
 	 */
 	@Test
 	public void variousElementsTest() {
-		queue.enqueue("Saúl");
-		queue.enqueue("Helado");
-		queue.enqueue("azufre$");
+		queue.add("Saúl");
+		queue.add("Helado");
+		queue.add("azufre$");
 		
 		assertEquals("Saúl", queue.peek());
 	}

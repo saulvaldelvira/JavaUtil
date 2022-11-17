@@ -4,9 +4,9 @@
 package saulv.collections;
 
 import java.util.Comparator;
+import java.util.List;
 
 import saulv.collections.list.ArrayList;
-import saulv.collections.list.List;
 
 /**
  * @author Saúl Valdelvira Iglesias
@@ -15,7 +15,7 @@ import saulv.collections.list.List;
 public class Collections {
 
 	public static<T> void sort(List<T> list, Comparator<T> comparator) {
-		List<T> sorted = new ArrayList<>();
+		List<T> sorted = new ArrayList<T>();
 		for (T element : list) {
 			int index = findPositionInSorted(element, sorted, comparator);
 			sorted.add(index, element);

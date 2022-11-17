@@ -1,6 +1,6 @@
 package saulv.collections.setting;
 
-import saulv.collections.list.List;
+import java.util.List;
 
 public interface ListFactory<T> {
 

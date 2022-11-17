@@ -32,7 +32,13 @@ public class ArgumentChecks {
 	}
 	
 	public static void isNotNull(Object obj) {
-		isTrue(obj!=null, "El parámetro no puede ser null");
+		if(obj==null)
+			throw new NullPointerException("The element is null");
+	}
+	
+	public static void isNotNull(Object obj, String message) {
+		if(obj==null)
+			throw new NullPointerException(message);
 	}
 	
 	public static void isNotEmpty(String str) {

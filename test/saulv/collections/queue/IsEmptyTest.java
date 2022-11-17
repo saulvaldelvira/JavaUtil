@@ -43,7 +43,7 @@ AbstractQueue<String> queue;
 	 */
 	@Test
 	public void queueWithElementsTest() {
-		queue.enqueue("H");
+		queue.add("H");
 		assertFalse(queue.isEmpty());
 	}
 

@@ -1,6 +1,9 @@
 package saulv.collections.list;
 
 import static org.junit.Assert.assertTrue;
+
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;

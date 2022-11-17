@@ -45,8 +45,8 @@ AbstractQueue<String> queue;
 	 */
 	@Test
 	public void elementsTest() {
-		queue.enqueue("hey");
-		queue.enqueue("jeje");
+		queue.add("hey");
+		queue.add("jeje");
 		assertEquals(2, queue.size());
 	}
 	

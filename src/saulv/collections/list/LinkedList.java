@@ -1,7 +1,11 @@
 package saulv.collections.list;
 
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
+import saulv.collections.Util;
 import saulv.util.checks.ArgumentChecks;
 import saulv.util.checks.IllegalStateChecks;
 import saulv.util.checks.IndexChecks;
@@ -13,12 +17,12 @@ import saulv.util.checks.NoSuchElementChecks;
  * @version 21/03/2021
  *
  */
-public class LinkedList<T> extends AbstractList<T> implements List<T> {
+public class LinkedList<E> extends AbstractList<E> implements List<E> {
 
 	private class Node {
-		T value;
+		E value;
 		Node next;
-		public Node(T value, Node next) {
+		public Node(E value, Node next) {
 			this.value = value;
 			this.next = next;
 		}
@@ -39,9 +43,9 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 	 * Genera una copia de la lista pasada como parámetro 
 	 * @param list, de tipo List<T>
 	 */
-	public LinkedList(List<T> list) {
+	public LinkedList(List<E> list) {
 		this();
-		for(T obj: list) {
+		for(E obj: list) {
 			this.add(obj);
 		}
 	}
@@ -75,9 +79,8 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 	 * @return true o false, boolean 
 	 */
 	@Override
-	public boolean contains(T obj) {
-		ArgumentChecks.isTrue(obj!=null, "El objeto a buscar no puede ser null");
-		
+	public boolean contains(Object obj) {
+		ArgumentChecks.isNotNull(obj);		
 		return indexOf(obj)!=- 1;
 	}
 
@@ -89,7 +92,7 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 	 * @param element, de tipo Object
 	 */
 	@Override
-	public boolean add(T element) {
+	public boolean add(E element) {
 		ArgumentChecks.isTrue(element!=null, "El parámetro element no puede ser nulo");
 		
 		if (head==null)
@@ -108,7 +111,7 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 	 * 
 	 * @param element, de tipo Object
 	 */
-	private void addFirst(T element) {
+	private void addFirst(E element) {
 		head = new Node(element, head);
 		numberOfElements++;		
 	}
@@ -118,10 +121,10 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 	 * algun cambio en la lista, o false en su defecto 
 	 */
 	@Override
-	public boolean remove(T obj) {
-		ArgumentChecks.isTrue(obj!=null, "El parámetro element no puede ser nulo");
+	public boolean remove(Object obj) {
+		ArgumentChecks.isNotNull(obj);
 		
-		int pos = indexOf(obj);
+		int pos = indexOf(Util.castToE(obj));
 		if(pos==-1) {
 			return false;
 		}else {
@@ -148,7 +151,7 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 	 * @return el objeto que se encuentra en dicha posicion, de tipo Object
 	 */
 	@Override
-	public T get(int index) {
+	public E get(int index) {
 		IndexChecks.isTrue(!(index < 0 || index >= size()), "El parametro index debe estar en los limites de la lista");
 		
 		return getNode(index).value;
@@ -163,10 +166,10 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 	 * @return el objeto que había en la posicon index antes del cambio
 	 */
 	@Override
-	public T set(int index, T value) {
+	public E set(int index, E value) {
 		IndexChecks.isTrue(!(index < 0 || index >= size()), "El parametro index debe estar en los limites de la lista");
 		
-		T aux=getNode(index).value;
+		E aux=getNode(index).value;
 		getNode(index).value = value;
 		return aux;
 	}
@@ -177,7 +180,7 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 	 * @param element, el elemento a añadir. De tipo Object
 	 */
 	@Override
-	public void add(int index, T element) {
+	public void add(int index, E element) {
 		ArgumentChecks.isTrue(element!=null, "El parametro element no puede ser nulo");
 		IndexChecks.isTrue(!(index < 0 || index > size()), "El parametro index debe estar en los limites de la lista");
 		
@@ -199,10 +202,10 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 	 * @return el objeto eliminado, de tipo Object
 	 */
 	@Override
-	public T remove(int pos) {
+	public E remove(int pos) {
 		IndexChecks.isTrue(!(pos < 0 || pos >= size()), "El parametro index debe estar en los limites de la lista");
 		
-		T value;
+		E value;
 		if(pos==0) {
 			value=head.value;
 			head=head.next;
@@ -267,7 +270,7 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 		if (!(obj instanceof List))
 			return false;
 		@SuppressWarnings("unchecked")
-		List<T> other = (List<T>) obj;
+		List<E> other = (List<E>) obj;
 		if (numberOfElements != other.size())
 			return false;
 		for(int i=0; i<size(); i++) {
@@ -299,11 +302,11 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 	
 	
 	@Override
-	public Iterator<T> iterator() {
+	public Iterator<E> iterator() {
 		return new LinkedListIterator();
 	}
 			
-	private class LinkedListIterator implements Iterator<T>{
+	private class LinkedListIterator implements Iterator<E>{
 		private Node next = head;
 		private Node lastReturned=null;
 		private int nextPos=0;
@@ -314,7 +317,7 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 		}
 		
 		@Override
-		public T next() {
+		public E next() {
 			NoSuchElementChecks.isTrue(hasNext());
 			
 			lastReturned=next;
@@ -333,6 +336,72 @@ public class LinkedList<T> extends AbstractList<T> implements List<T> {
 			lastReturned=null;
 		}
 		
+	}
+
+	@Override
+	public Object[] toArray() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <T> T[] toArray(T[] a) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean containsAll(Collection<?> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addAll(Collection<? extends E> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addAll(int index, Collection<? extends E> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int lastIndexOf(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ListIterator<E> listIterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ListIterator<E> listIterator(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<E> subList(int fromIndex, int toIndex) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
 		

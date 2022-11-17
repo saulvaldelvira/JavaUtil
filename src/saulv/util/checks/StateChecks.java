@@ -13,5 +13,17 @@ public class StateChecks {
 		throw new IllegalStateException( msg );
 		}
 	}
+	
+	public static void isTrue(boolean condition, RuntimeException e) {
+		if (!condition) {
+		   throw e;
+		}
+	}
+	
+	public static void isFalse(boolean condition, RuntimeException e) {
+		if (condition) {
+		   throw e;
+		}
+	}
 
 }

@@ -1,4 +1,4 @@
-package saulv.util.hash;
+package saulv.hash;
 
 /**
  * Tabla Hash abstracta. 

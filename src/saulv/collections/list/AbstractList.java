@@ -1,8 +1,11 @@
 package saulv.collections.list;
 
+import java.util.List;
+
+import saulv.collections.Util;
 import saulv.util.checks.ArgumentChecks;
 
-public abstract class AbstractList<T> implements List<T>{
+public abstract class AbstractList<E> implements List<E>{
 
 	protected int numberOfElements;
 
@@ -38,9 +41,9 @@ public abstract class AbstractList<T> implements List<T>{
 	 * @return true o false, boolean 
 	 */
 	@Override
-	public boolean contains(T o) {
-		ArgumentChecks.isTrue(o!=null, "El objeto a buscar no puede ser null");
-		return indexOf(o)!=- 1;
+	public boolean contains(Object o) {
+		ArgumentChecks.isNotNull(o);
+		return indexOf(Util.castToE(o))!=- 1;
 	}
 
 	/**
@@ -50,9 +53,10 @@ public abstract class AbstractList<T> implements List<T>{
 	 * @param o, el objeto a buscar. De tipo Object
 	 */
 	@Override
-	public int indexOf(T o) {
+	public int indexOf(Object o) {
+		ArgumentChecks.isNotNull(o);
 		for(int i=0; i<this.size();i++) {
-			if(this.get(i).equals(o)) {
+			if(this.get(i).equals(Util.castToE(o))) {
 				return i;
 			}
 		}
@@ -75,7 +79,7 @@ public abstract class AbstractList<T> implements List<T>{
 		if (!(obj instanceof List))
 			return false;
 		@SuppressWarnings("unchecked")
-		List<T> other = (List<T>) obj;
+		List<E> other = (List<E>) obj;
 		if (numberOfElements != other.size())
 			return false;
 		for(int i=0; i<size(); i++) {
@@ -84,5 +88,5 @@ public abstract class AbstractList<T> implements List<T>{
 		}
 		return true;
 	}
-
+	
 }

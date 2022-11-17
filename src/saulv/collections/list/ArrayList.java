@@ -1,9 +1,11 @@
 package saulv.collections.list;
 
-
-
+import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
+import saulv.collections.Util;
 import saulv.util.checks.ArgumentChecks;
 import saulv.util.checks.IllegalStateChecks;
 import saulv.util.checks.IndexChecks;
@@ -15,18 +17,18 @@ import saulv.util.checks.NoSuchElementChecks;
  * @version 21/03/2021
  *
  */
-public class ArrayList<T> extends AbstractList<T> implements List<T> {
+public class ArrayList<E> extends AbstractList<E> implements List<E> {
 
 	private final static int INITIAL_CAPACITY = 20;
 	
-	private T[] elements;
+	private E[] elements;
 	/**
 	 * Construye un objeto ArrayList con un tamaño inicial determinado
 	 * @param capacity, de tipo int
 	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList(int capacity) {
-		elements=(T[]) new Object[capacity];
+		elements=(E[]) new Object[capacity];
 		numberOfElements = 0;
 	}
 	
@@ -42,9 +44,9 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	 * Genera una copia de la lista pasada como parámetro 
 	 * @param list, de tipo List<T>
 	 */
-	public ArrayList(List<T> list) {
+	public ArrayList(List<E> list) {
 		this();
-		for(T obj: list) {
+		for(E obj: list) {
 			this.add(obj);
 		}
 	}
@@ -55,7 +57,7 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	 * @param o, de tipo Object
 	 */
 	@Override
-	public boolean add(T element) {
+	public boolean add(E element) {
 		ArgumentChecks.isTrue(element!=null, "El parámetro element no puede ser null");
 		if (size() >= elements.length) {
 			moreMemory(size()+1);
@@ -75,7 +77,7 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	private void moreMemory(int numElem) {
 		if (numElem > elements.length) {
 		@SuppressWarnings("unchecked")
-		T[] aux = (T[]) new Object[Math.max( numElem,
+		E[] aux = (E[]) new Object[Math.max( numElem,
 								2*elements.length)];
 		System.arraycopy(elements, 0, aux, 0, elements.length);
 		elements=aux;
@@ -87,13 +89,12 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	 * algun cambio en la lista, o false en su defecto 
 	 */
 	@Override
-	public boolean remove(T o) {
+	public boolean remove(Object o) {
 		ArgumentChecks.isNotNull(o);
-		
-		if(indexOf(o)==-1) {
+		if(indexOf(Util.castToE(o))==-1) {
 			return false;
 		}else{
-			remove(indexOf(o));
+			remove(indexOf(Util.castToE(o)));
 			return true;
 		}
 		
@@ -105,7 +106,7 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	@SuppressWarnings("unchecked")
 	@Override
 	public void clear() {
-		elements=(T[]) new Object[INITIAL_CAPACITY];
+		elements=(E[]) new Object[INITIAL_CAPACITY];
 		numberOfElements=0;
 
 	}
@@ -117,7 +118,7 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	 * @return el objeto que se encuentra en dicha posicion, de tipo Object
 	 */
 	@Override
-	public T get(int index) {
+	public E get(int index) {
 		IndexChecks.isTrue(!(index < 0 || index >= size()), "El parametro index debe estar en los limites de la lista");
 		
 		return elements[index];
@@ -132,11 +133,11 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	 * @return el objeto que había en la posicon index antes del cambio
 	 */
 	@Override
-	public T set(int index, T element) {
+	public E set(int index, E element) {
 		ArgumentChecks.isTrue(element!=null, "El parametro element no puede ser nulo");
 		IndexChecks.isTrue(!(index < 0 || index >= size()), "El parametro index debe estar en los limites de la lista");
 		
-		T obj = elements[index];
+		E obj = elements[index];
 		elements[index]=element;
 		return obj;
 	}
@@ -147,7 +148,7 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	 * @param element, el elemento a añadir. De tipo Object
 	 */
 	@Override
-	public void add(int index, T element) {
+	public void add(int index, E element) {
 		ArgumentChecks.isTrue(element!=null, "El parámetro element no puede ser nulo");
 		IndexChecks.isTrue(!(index < 0 || index > size()), "El parametro index debe estar en los limites de la lista");
 		
@@ -167,10 +168,10 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	 * @return el objeto eliminado, de tipo Object
 	 */
 	@Override
-	public T remove(int index) {
+	public E remove(int index) {
 		IndexChecks.isTrue(!(index < 0 || index >= size()), "El parametro index debe estar en los limites de la lista");
 		
-		T value = elements[index];
+		E value = elements[index];
 		for(int j=index; j<size()-1; j++)
 			elements[j] = elements[j+1];
 		elements[size()]=null;
@@ -182,7 +183,7 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	@Override
 	public int hashCode() {
 		int result = 1;
-		for (T e : elements) {
+		for (E e : elements) {
 			if(e!=null)
 				result = 31 * result + (e == null ? 0 : e.hashCode());
 		}
@@ -210,13 +211,13 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 	}
 
 	@Override
-	public Iterator<T> iterator() {
+	public Iterator<E> iterator() {
 		return new ArrayListIterator();
 	}
 	
-	private class ArrayListIterator implements Iterator<T>{
+	private class ArrayListIterator implements Iterator<E>{
 		private int nextPos=0;
-		private T next=null;
+		private E next=null;
 		
 		@Override
 		public boolean hasNext() {
@@ -224,7 +225,7 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 		}
 
 		@Override
-		public T next() {
+		public E next() {
 			NoSuchElementChecks.isTrue(hasNext());
 			
 			next=ArrayList.this.get(nextPos);
@@ -241,6 +242,72 @@ public class ArrayList<T> extends AbstractList<T> implements List<T> {
 			nextPos--;
 		}
 		
+	}
+
+	@Override
+	public Object[] toArray() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <T> T[] toArray(T[] a) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean containsAll(Collection<?> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addAll(Collection<? extends E> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean addAll(int index, Collection<? extends E> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeAll(Collection<?> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean retainAll(Collection<?> c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public int lastIndexOf(Object o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public ListIterator<E> listIterator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ListIterator<E> listIterator(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<E> subList(int fromIndex, int toIndex) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 
