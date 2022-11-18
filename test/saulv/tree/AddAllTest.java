@@ -41,8 +41,8 @@ public class AddAllTest {
 		avl.removeAll(numbers);
 		bst.removeAll(numbers);
 		
-		assertTrue(avl.isEmpty());
-		assertTrue(bst.isEmpty());
+		assertTrue(avl.empty());
+		assertTrue(bst.empty());
 	}
 
 }
