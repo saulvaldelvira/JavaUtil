@@ -4,10 +4,17 @@ import java.util.Collection;
 
 import saulv.tree.exception.EmptyStructureException;
 
-public interface Tree<T extends Comparable<T>> {
+/**
+ * Interface that defines the functionality of a Tree
+ * @author Saúl
+ *
+ * @param <T>
+ */
+public interface Tree<T extends Comparable<T>>{
 	/**
 	 * Adds an element in the tree.
 	 * @param element to add
+	 * @return 
 	 * @throws NullPointerException if the element is null
 	 */
 	public void add(T element);

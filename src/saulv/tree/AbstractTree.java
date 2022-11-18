@@ -3,10 +3,6 @@ package saulv.tree;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import saulv.tree.avl.AVLNode;
-import saulv.tree.avl.AVLTree;
-import saulv.tree.bst.BSTNode;
-import saulv.tree.bst.BSTree;
 import saulv.tree.exception.ElementNotPresentException;
 import saulv.tree.exception.EmptyStructureException;
 import saulv.tree.exception.RepeatedElementException;
@@ -14,9 +10,11 @@ import saulv.tree.exception.RepeatedElementException;
 public abstract class AbstractTree<T extends Comparable<T>, N extends AbstractNode<T>> implements Tree<T> {
 	public static final String SEPARATOR = "-"; // toString()
 	N root;
+	int nElements;
 	
 	public AbstractTree() {
 		root = null;
+		nElements = 0;
 	}
 	
 	public N getRoot(){
