@@ -97,7 +97,7 @@ public class OpenHashTable<T extends Comparable<T>> extends AbstractHash<T> {
 	public int add(T elemento) {
 		if(elemento == null) return -2;
 		int pos = fHash(elemento);
-		tabla[pos].addNode(elemento);
+		tabla[pos].add(elemento);
 		numElementos++;
 		if(getLoadFactor()>=maxlf)	redispersion();
 		return 0;
@@ -135,9 +135,7 @@ public class OpenHashTable<T extends Comparable<T>> extends AbstractHash<T> {
 	public T find(T elemento) {
 		if(elemento == null) return null;
 		int pos = fHash(elemento);
-		AVLNode<T> node = tabla[pos].searchNode(elemento);
-		if(node==null)	return null;
-		else return node.getInfo();
+		return tabla[pos].get(elemento);
 	}
 
 	/**
@@ -152,7 +150,7 @@ public class OpenHashTable<T extends Comparable<T>> extends AbstractHash<T> {
 	public int remove(T elemento) {
 		if(elemento == null) return -2;
 		int pos = fHash(elemento);
-		tabla[pos].removeNode(elemento);
+		tabla[pos].remove(elemento);
 		numElementos--;
 		if(getLoadFactor()<=minlf)	redispersionInversa();
 		return 0;

@@ -5,8 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ArbolesAVLTest.class, NodosAVLTest.class})
-
+@SuiteClasses({ AVLTest.class, BFTest.class })
 public class AllTests {
 
 }
