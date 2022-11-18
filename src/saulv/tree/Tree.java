@@ -9,6 +9,7 @@ import saulv.tree.exception.EmptyStructureException;
  * @author Saúl
  *
  * @param <T>
+ * @version 1.0
  */
 public interface Tree<T extends Comparable<T>>{
 	/**
