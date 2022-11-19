@@ -132,16 +132,16 @@ public abstract class AbstractTree<T extends Comparable<T>, N extends AbstractNo
 		return lHeight > rHeight ? lHeight : rHeight;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public Tree<T> joins(Tree<T> other){
-		AbstractTree<T, N> result;
+		Tree<T> result;
 		try {
-			result = this.getClass().newInstance();
+			result = (Tree<T>) this.getClass().getDeclaredConstructor().newInstance();
 		} catch (Exception e) {
 			return null;
 		}
-		ArrayList<T> elements = new ArrayList<T>();
-		this.getElements(elements);
-		other.getElements(elements);
+		ArrayList<T> elements = this.getElements(new ArrayList<T>());
+		other.addElementsTo(elements);
 		for(T element: elements)
 			try {
 				result.add(element);
@@ -151,8 +151,22 @@ public abstract class AbstractTree<T extends Comparable<T>, N extends AbstractNo
 		return result;
 	}
 	
-	public void getElements(Collection<T> c){
-		getElementsR(c, root);
+	@SuppressWarnings({ "unchecked"})
+	@Override
+	public <C extends Collection<T>> C getElements(C clas){
+		C result = null;
+		
+		try {
+			result = (C) clas.getClass().getDeclaredConstructor().newInstance();
+			addElementsTo(result);
+		} catch (Exception e) {
+			throw new RuntimeException(e.getMessage());
+		}
+		return result;
+	}
+	
+	public void addElementsTo(Collection<T> c){
+		addElementsToR(c, root);
 	}
 	
 	/**
@@ -161,12 +175,12 @@ public abstract class AbstractTree<T extends Comparable<T>, N extends AbstractNo
 	 * @param c    : the collection to store the element in
 	 * @param node : the current node
 	 */
-	private void getElementsR(Collection<T> c, N node){
+	private void addElementsToR(Collection<T> c, N node){
 		if(node==null)
 			return;
 		c.add(node.getInfo());
-		getElementsR(c, node.getRight());
-		getElementsR(c, node.getLeft());
+		addElementsToR(c, node.getRight());
+		addElementsToR(c, node.getLeft());
 	}
 
 	@Override
@@ -179,11 +193,7 @@ public abstract class AbstractTree<T extends Comparable<T>, N extends AbstractNo
 		if (getClass() != obj.getClass())
 			return false;
 		AbstractTree<T,N> other = (AbstractTree<T,N>) obj;
-		ArrayList<T> thisList = new ArrayList<T>(),
-				 otherList = new ArrayList<T>();
-		this.getElements(thisList);
-		other.getElements(otherList);
-		return thisList.equals(otherList);
+		return getElements(new ArrayList<T>()).equals(other.getElements(new ArrayList<T>()));
 	}
 
 	@Override

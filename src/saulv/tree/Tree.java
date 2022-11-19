@@ -86,9 +86,11 @@ public interface Tree<T extends Comparable<T>>{
 	 */
 	public Tree<T> joins(Tree<T> other);
 	
+	public <C extends Collection<T>> C getElements(C clas);
+	
 	/**
 	 * Given a collection, adds all the elements in the tree to it
 	 * @param c the Collencion to add
 	 */
-	public void getElements(Collection<T> c);
+	public void addElementsTo(Collection<T> c);
 }
