@@ -151,7 +151,7 @@ public abstract class AbstractTree<T extends Comparable<T>, N extends AbstractNo
 		return result;
 	}
 	
-	@SuppressWarnings({ "unchecked"})
+	@SuppressWarnings("unchecked")
 	@Override
 	public <C extends Collection<T>> C getElements(C clas){
 		C result = null;
@@ -183,8 +183,8 @@ public abstract class AbstractTree<T extends Comparable<T>, N extends AbstractNo
 		addElementsToR(c, node.getLeft());
 	}
 
-	@Override
 	@SuppressWarnings("unchecked")
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
