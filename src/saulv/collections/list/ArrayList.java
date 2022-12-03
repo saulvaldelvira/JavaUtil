@@ -56,7 +56,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E> {
 	 */
 	@Override
 	public boolean add(E element) {
-		if(!permitNull)
+		//if(!permitNull)
 			ArgumentChecks.isNotNull(element);
 		checkMemory();
 		elements[size()] = element;

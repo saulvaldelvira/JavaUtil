@@ -91,7 +91,7 @@ public class LinkedList<E> extends AbstractList<E> implements List<E> {
 	 */
 	@Override
 	public boolean add(E element) {
-		if(!permitNull)
+		//if(!permitNull)
 			ArgumentChecks.isNotNull(element);
 		
 		if (head==null)
@@ -234,6 +234,7 @@ public class LinkedList<E> extends AbstractList<E> implements List<E> {
 	 */
 	@Override
 	public int indexOf(Object o) {
+		ArgumentChecks.isNotNull(o);
 		Node aux=head;
 		int i=0;
 		while(aux!=null  && !aux.value.equals(o)) {

@@ -1,6 +1,7 @@
 package saulv.collections.list;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.List;
 
@@ -48,9 +49,13 @@ public class IndexOfTests {
 	 * THEN: devuelve -1
 	 */
 	@Test
-	(expected = NullPointerException.class)
 	public void indexOfNullObjecttest() {	
-		list.indexOf(null);
+		try {
+			list.indexOf(null);
+			fail();
+		}catch(NullPointerException e) {
+			
+		}
 	}
 	
 	/**
