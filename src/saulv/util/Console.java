@@ -15,9 +15,14 @@ import java.util.Scanner;
  */
 public class Console {
 	
-	private static PrintStream out = System.out;
-	private static Scanner keyboard = new Scanner( System.in );
+	private static PrintStream out;
+	private static Scanner keyboard;
 
+	public Console() {
+		out = System.out;
+		keyboard = new Scanner( System.in );
+	}
+	
 	public Console(PrintStream p, Scanner i) {
 		out = p;
 		keyboard = i;
