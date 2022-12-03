@@ -7,7 +7,7 @@ import java.util.EmptyStackException;
 import org.junit.Before;
 import org.junit.Test;
 
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
 /**
  * @author Saúl Valdelvira Iglesias
  * @version 29/03/2021

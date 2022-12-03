@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
 
 public class ToStringTests {
 	
@@ -17,7 +17,7 @@ public class ToStringTests {
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() throws Exception {
-		list = Settings.factory.newList();
+		list = Settings.listFactory.newList();
 	}
 
 	/*

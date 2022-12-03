@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import saulv.collections.setting.ArrayListQueueFactory;
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
+import saulv.setting.collections.queue.ArrayListQueueFactory;
 
 
 

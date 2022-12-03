@@ -1,7 +1,7 @@
 /**
  * 
  */
-package saulv.collections.setting;
+package saulv.setting.collections.queue;
 
 import saulv.collections.queue.AbstractQueue;
 

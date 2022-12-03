@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import saulv.tree.avl.AVLTree;
-import saulv.tree.bst.BSTree;
+import saulv.setting.Settings;
 
 
 public class AddAllTest {
@@ -15,34 +14,27 @@ public class AddAllTest {
 
 	@Test
 	public void test() {
-		AVLTree<Integer> avl = new AVLTree<Integer>();
-		BSTree<Integer> bst = new BSTree<Integer>();
+		@SuppressWarnings("unchecked")
+		Tree<Integer> avl = Settings.treeFactory.newTree();
 		
 		Integer[] numbers = {0, 1, 2, 3, null, 15, null, null};
 		
 		avl.addAll(numbers);
-		bst.addAll(numbers);
 		
-		ArrayList<Integer> avlList = new ArrayList<Integer>(),
-						   bslList = new ArrayList<Integer>();
+		ArrayList<Integer> avlList = new ArrayList<Integer>();
 		
-		avl.getElements(avlList);
-		bst.getElements(bslList);
+		avl.addElementsTo(avlList);
 		
 		assertEquals(5, avlList.size());
-		assertEquals(5, bslList.size());
 		
 		for(int i=0; i<numbers.length; i++)
-			if(numbers[i]!=null) {
+			if(numbers[i]!=null)
 				assertTrue(avl.contains(numbers[i]));
-				assertTrue(bst.contains(numbers[i]));
-			}
+			
 		
 		avl.removeAll(numbers);
-		bst.removeAll(numbers);
 		
 		assertTrue(avl.empty());
-		assertTrue(bst.empty());
 	}
 
 }

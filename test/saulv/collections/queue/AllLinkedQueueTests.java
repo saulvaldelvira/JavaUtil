@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import saulv.collections.setting.LinkedListQueueFactory;
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
+import saulv.setting.collections.queue.LinkedListQueueFactory;
 
 
 

@@ -140,7 +140,7 @@ public abstract class AbstractTree<T extends Comparable<T>, N extends AbstractNo
 		} catch (Exception e) {
 			return null;
 		}
-		ArrayList<T> elements = this.getElements(new ArrayList<T>());
+		ArrayList<T> elements = (ArrayList<T>) this.getElements(new ArrayList<T>());
 		other.addElementsTo(elements);
 		for(T element: elements)
 			try {
@@ -153,11 +153,11 @@ public abstract class AbstractTree<T extends Comparable<T>, N extends AbstractNo
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public <C extends Collection<T>> C getElements(C clas){
-		C result = null;
+	public Collection<T> getElements(Collection<T> clas){
+		Collection<T> result = null;
 		
 		try {
-			result = (C) clas.getClass().getDeclaredConstructor().newInstance();
+			result = clas.getClass().getDeclaredConstructor().newInstance();
 			addElementsTo(result);
 		} catch (Exception e) {
 			throw new RuntimeException(e.getMessage());

@@ -1,4 +1,4 @@
-package saulv.collections.setting;
+package saulv.setting.collections.list;
 
 import java.util.List;
 

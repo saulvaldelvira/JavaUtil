@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import saulv.collections.setting.LinkedListFactory;
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
+import saulv.setting.collections.list.LinkedListFactory;
 
 @RunWith(Suite.class)
 @SuiteClasses({ AddInPositionTests.class, AddLastTests.class, ClearTests.class,
@@ -18,7 +18,7 @@ public class AllLinkedListTests {
 
 	@BeforeClass
 	public static <T> void setUp() {
-		Settings.factory = new LinkedListFactory<T>();
+		Settings.listFactory = new LinkedListFactory<T>();
 	}
 
 }

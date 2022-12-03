@@ -88,11 +88,10 @@ public interface Tree<T extends Comparable<T>>{
 	
 	/**
 	 * Returns a new Collection with all the elements of the Tree.
-	 * @param <C> the type of the collection. Must Extends Collection<T>
 	 * @param clas an object of the same type as the desired return type
 	 * @return the new Colelction
 	 */
-	public <C extends Collection<T>> C getElements(C clas);
+	public Collection<T> getElements(Collection<T> clas);
 	
 	/**
 	 * Given a collection, adds all the elements in the tree to it

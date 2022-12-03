@@ -10,7 +10,7 @@ import java.util.NoSuchElementException;
 import org.junit.Before;
 import org.junit.Test;
 
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
 
 
 

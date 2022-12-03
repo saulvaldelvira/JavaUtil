@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import saulv.collections.setting.ArrayListStackFactory;
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
+import saulv.setting.collections.stack.ArrayListStackFactory;
 
 @RunWith(Suite.class)
 @SuiteClasses({ IsEmptyTest.class, PeekTest.class, PopTest.class, PushTest.class, SizeTest.class })

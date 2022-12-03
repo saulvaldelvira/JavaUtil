@@ -9,7 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
 
 public class HashCodeTests {
 	
@@ -18,7 +18,7 @@ public class HashCodeTests {
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() throws Exception {
-		list = Settings.factory.newList();
+		list = Settings.listFactory.newList();
 	}
 
 	/**
@@ -88,7 +88,7 @@ public class HashCodeTests {
     @Test
     public void hashCodeDifferentTypesLists() {
         @SuppressWarnings("unchecked")
-		List<String> list2 = Settings.factory.newList();
+		List<String> list2 = Settings.listFactory.newList();
         list.add(0, "A");
         list.add(0, "B");
         list.add(0, "C");
@@ -107,7 +107,7 @@ public class HashCodeTests {
     @Test
     public void hashCodeDifferentOrderLists() {
         @SuppressWarnings("unchecked")
-		List<String> list2 = Settings.factory.newList();
+		List<String> list2 = Settings.listFactory.newList();
         list.add(0, "A");
         list.add(0, "B");
         list.add(0, "C");

@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
 
 public class AddLastTests {
 	
@@ -20,7 +20,7 @@ public class AddLastTests {
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() throws Exception {
-		list = Settings.factory.newList();
+		list = Settings.listFactory.newList();
 		o1=new Object();
 		o2=new Object();
 		elementToAdd= new Object();

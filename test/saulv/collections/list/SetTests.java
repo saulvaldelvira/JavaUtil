@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
 
 /**
  * 
@@ -28,8 +28,8 @@ public class SetTests {
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() throws Exception{
-		list = Settings.factory.newList();
-		emptyList= Settings.factory.newList();
+		list = Settings.listFactory.newList();
+		emptyList= Settings.listFactory.newList();
 		
 		element1= new Object();
 		element2= new Object();

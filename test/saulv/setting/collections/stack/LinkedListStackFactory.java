@@ -1,4 +1,4 @@
-package saulv.collections.setting;
+package saulv.setting.collections.stack;
 
 import saulv.collections.stack.AbstractStack;
 import saulv.collections.stack.LinkedListStack;

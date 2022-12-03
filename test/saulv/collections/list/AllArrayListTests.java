@@ -5,8 +5,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import saulv.collections.setting.ArrayListFactory;
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
+import saulv.setting.collections.list.ArrayListFactory;
 
 @RunWith(Suite.class)
 @SuiteClasses({ AddInPositionTests.class, AddLastTests.class, ClearTests.class,
@@ -18,7 +18,7 @@ public class AllArrayListTests {
 	
 	@BeforeClass
 	public static <T> void setUp() {
-		Settings.factory = new ArrayListFactory<T>();
+		Settings.listFactory = new ArrayListFactory<T>();
 	}
 
 }

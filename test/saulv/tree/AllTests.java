@@ -5,7 +5,8 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({saulv.tree.avl.AllTests.class, saulv.tree.bst.AllTests.class, saulv.tree.priorityQueue.ColasPrioridadTest.class})
+@SuiteClasses({saulv.tree.AllAVLTest.class,
+				saulv.tree.AllBSTTest.class})
 public class AllTests {
 
 }

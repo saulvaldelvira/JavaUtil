@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
 
 public class ClearTests {
 	
@@ -17,7 +17,7 @@ public class ClearTests {
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() throws Exception {
-		list = Settings.factory.newList();
+		list = Settings.listFactory.newList();
 	}
 
 	/**

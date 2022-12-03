@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import saulv.collections.setting.Settings;
+import saulv.setting.Settings;
 public class EqualsTests {
 	
 	private List<String> l1;
@@ -34,8 +34,8 @@ public class EqualsTests {
 	@SuppressWarnings("unchecked")
 	@Before
 	public void setUp() throws Exception {
-		l1 = Settings.factory.newList();
-		l2 = Settings.factory.newList();
+		l1 = Settings.listFactory.newList();
+		l2 = Settings.listFactory.newList();
 	}
 	
 	/**
