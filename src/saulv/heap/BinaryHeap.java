@@ -5,7 +5,10 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Represents a priority queue, implemented using a binary heap of mins.
+ * Represents a priority queue, implemented using a binary heap of mins. <br>
+ * See: 
+ * 	* <a href="https://en.wikipedia.org/wiki/Binary_heap">Binary Heap</a>
+ * 
  * @author Saúl Valdelvira Iglesias (UO283685)
  *
  * @param <T> the type of the info stored in the queue
