@@ -56,7 +56,8 @@ public class ArrayList<E> extends AbstractList<E> implements List<E> {
 	 */
 	@Override
 	public boolean add(E element) {
-		ArgumentChecks.isTrue(element!=null, "El parámetro element no puede ser null");
+		if(!permitNull)
+			ArgumentChecks.isNotNull(element);
 		checkMemory();
 		elements[size()] = element;
 		numberOfElements++;
@@ -154,8 +155,8 @@ public class ArrayList<E> extends AbstractList<E> implements List<E> {
 		IndexChecks.isTrue(!(index < 0 || index > size()), "El parametro index debe estar en los limites de la lista");
 		numberOfElements++;
 		checkMemory();
-		for(int i=index; i<size(); i++)
-			elements[i] = elements[i+1];
+		for(int i=size()-1; i>=index; i--)
+			elements[i+1] = elements[i];
 		elements[index] = element;
 
 	}
@@ -172,7 +173,7 @@ public class ArrayList<E> extends AbstractList<E> implements List<E> {
 		IndexChecks.isTrue(!(index < 0 || index >= size()), "El parametro index debe estar en los limites de la lista");
 		
 		E value = elements[index];
-		for(int j=index; j<size()-1; j++)
+		for(int j=index; j<size(); j++)
 			elements[j] = elements[j+1];
 		elements[size()]=null;
 		numberOfElements--;

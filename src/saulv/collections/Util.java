@@ -7,6 +7,9 @@ public class Util {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <E> E castAs(Object o) {
-		return (E) o;
+		E res = (E) o;
+		if(res == null)
+			throw new ClassCastException();
+		return res;
 	}
 }

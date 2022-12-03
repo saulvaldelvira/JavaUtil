@@ -34,7 +34,7 @@ public class HashCodeTests {
 	
 	/**
 	 * GIVEN dada una no vacía
-	 * WHEN llamamos al hasCode()
+	 * WHEN llamamos al hashCode()
 	 * THEN devuelve el hashCode calculado
 	 */
 	@Test

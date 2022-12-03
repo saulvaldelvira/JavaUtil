@@ -148,7 +148,7 @@ public class AddInPositionTests {
      * THEN Salta IllegalArgumentException
      */
 	@Test 
-	(expected = IllegalArgumentException.class)
+	(expected = NullPointerException.class)
 	public void emptyListNullParameter() {
 		
 		list.add(0, null);

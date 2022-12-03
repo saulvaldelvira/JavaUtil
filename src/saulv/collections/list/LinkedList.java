@@ -91,7 +91,8 @@ public class LinkedList<E> extends AbstractList<E> implements List<E> {
 	 */
 	@Override
 	public boolean add(E element) {
-		ArgumentChecks.isTrue(element!=null, "El parámetro element no puede ser nulo");
+		if(!permitNull)
+			ArgumentChecks.isNotNull(element);
 		
 		if (head==null)
 			this.addFirst(element);

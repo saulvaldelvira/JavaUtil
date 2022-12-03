@@ -48,9 +48,9 @@ public class IndexOfTests {
 	 * THEN: devuelve -1
 	 */
 	@Test
+	(expected = NullPointerException.class)
 	public void indexOfNullObjecttest() {	
-		assertEquals(-1, list.indexOf(null));
-
+		list.indexOf(null);
 	}
 	
 	/**

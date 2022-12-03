@@ -82,7 +82,7 @@ public class AddLastTests {
 	 * THEN lanza un IllegalArgumentException
 	 */
 	@Test
-	(expected= IllegalArgumentException.class)
+	(expected= NullPointerException.class)
 	public void addNullElementTest() {
 		list.add(null);
 	}

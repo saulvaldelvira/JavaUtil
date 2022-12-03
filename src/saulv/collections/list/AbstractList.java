@@ -11,9 +11,11 @@ import saulv.util.checks.ArgumentChecks;
 public abstract class AbstractList<E> implements List<E>{
 
 	protected int numberOfElements;
-
+	protected boolean permitNull;
+	
 	public AbstractList() {
-		super();
+		numberOfElements = 0;
+		permitNull = false;
 	}
 	
 	/**

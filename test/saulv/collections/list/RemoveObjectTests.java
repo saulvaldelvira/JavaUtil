@@ -62,7 +62,7 @@ public class RemoveObjectTests {
 	*/
 	@Test
 	public void VariousElements() {
-		
+		list.clear();
 		list.add(0, test);
 		list.add(0, test2);
 		list.add(0, test3);
@@ -105,7 +105,7 @@ public class RemoveObjectTests {
 	*/
 	@Test
 	public void repeatedElement() {
-		
+		list.clear();
 		list.add(0, test);
 		list.add(0, test2);
 		list.add(0, test3);
