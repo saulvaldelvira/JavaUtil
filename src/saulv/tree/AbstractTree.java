@@ -3,9 +3,9 @@ package saulv.tree;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import saulv.tree.exception.ElementNotPresentException;
-import saulv.tree.exception.EmptyStructureException;
-import saulv.tree.exception.RepeatedElementException;
+import saulv.exception.ElementNotPresentException;
+import saulv.exception.EmptyStructureException;
+import saulv.exception.RepeatedElementException;
 
 public abstract class AbstractTree<T extends Comparable<T>, N extends AbstractNode<T>> implements Tree<T> {
 	public static final String SEPARATOR = "-"; // toString()

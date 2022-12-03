@@ -36,7 +36,7 @@ public class BSTBasicTest {
 		try {
 			a.add('h');
 			fail();
-		}catch(saulv.tree.exception.RepeatedElementException e) {
+		}catch(saulv.exception.RepeatedElementException e) {
 			e.printStackTrace();
 		}
 	}

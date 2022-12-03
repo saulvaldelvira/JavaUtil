@@ -2,6 +2,8 @@ package saulv.graph;
 
 import java.text.DecimalFormat;
 
+import saulv.exception.*;
+
 public class Graph<T> {
 
 	public static final int INDEX_NOT_FOUND = -1;

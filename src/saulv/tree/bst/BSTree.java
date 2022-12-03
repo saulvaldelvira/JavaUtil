@@ -1,8 +1,8 @@
 package saulv.tree.bst;
 
+import saulv.exception.ElementNotPresentException;
+import saulv.exception.RepeatedElementException;
 import saulv.tree.AbstractTree;
-import saulv.tree.exception.ElementNotPresentException;
-import saulv.tree.exception.RepeatedElementException;
 /**
  * Represents a Binary Search Tree. <br>
  * More info: <a>https://en.wikipedia.org/wiki/Binary_search_tree</a>

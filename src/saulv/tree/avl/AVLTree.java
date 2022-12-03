@@ -1,7 +1,7 @@
 package saulv.tree.avl;
 
-import saulv.tree.exception.ElementNotPresentException;
-import saulv.tree.exception.RepeatedElementException;
+import saulv.exception.ElementNotPresentException;
+import saulv.exception.RepeatedElementException;
 import saulv.tree.AbstractTree;
 
 /**

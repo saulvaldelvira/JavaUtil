@@ -2,7 +2,7 @@ package saulv.tree;
 
 import java.util.Collection;
 
-import saulv.tree.exception.EmptyStructureException;
+import saulv.exception.EmptyStructureException;
 
 /**
  * Interface that defines the functionality of a Tree

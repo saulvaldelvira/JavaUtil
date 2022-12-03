@@ -1,6 +1,7 @@
 package saulv.graph;
 
 import static org.junit.Assert.*;
+import saulv.exception.*;
 
 import org.junit.Test;
 

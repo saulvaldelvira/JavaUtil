@@ -1,4 +1,4 @@
-package saulv.tree.exception;
+package saulv.exception;
 
 public class ElementNotPresentException extends RuntimeException {
 
