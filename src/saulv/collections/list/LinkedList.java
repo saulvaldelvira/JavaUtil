@@ -337,6 +337,14 @@ public class LinkedList<E> extends AbstractList<E> implements List<E> {
 		}
 		
 	}
+	
+	@Override
+	public List<E> subList(int fromIndex, int toIndex) {
+		LinkedList<E> result = new LinkedList<E>();
+		while(fromIndex<toIndex)
+			result.add( this.get(fromIndex++) );
+		return result;
+	}
 
 }
 		

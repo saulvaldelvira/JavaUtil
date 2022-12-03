@@ -182,20 +182,15 @@ public abstract class AbstractList<E> implements List<E>{
 	
 	@Override
 	public ListIterator<E> listIterator() {
-		// TODO Auto-generated method stub
-		return null;
+		return new AbstractListIterator<E>(this);
 	}
 
 	@Override
 	public ListIterator<E> listIterator(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return new AbstractListIterator<E>(this, index);
 	}
 
 	@Override
-	public List<E> subList(int fromIndex, int toIndex) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+	public abstract List<E> subList(int fromIndex, int toIndex);
+
 }

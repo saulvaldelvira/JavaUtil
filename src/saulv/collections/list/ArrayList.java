@@ -245,4 +245,12 @@ public class ArrayList<E> extends AbstractList<E> implements List<E> {
 		
 	}
 
+	@Override
+	public List<E> subList(int fromIndex, int toIndex) {
+		ArrayList<E> result = new ArrayList<E>();
+		while(fromIndex<toIndex)
+			result.add( this.get(fromIndex++) );
+		return result;
+	}
+
 }
