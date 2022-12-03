@@ -92,6 +92,10 @@ public class Graph<T> {
 		return INDEX_NOT_FOUND;
 	}
 	
+	public boolean existNode(T node) {
+		return getNode(node)!=INDEX_NOT_FOUND;
+	}
+	
 	public int getSize() {
 		return numNodes;
 	}
