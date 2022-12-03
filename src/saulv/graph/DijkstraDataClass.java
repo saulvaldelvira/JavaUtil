@@ -1,7 +1,6 @@
 package saulv.graph;
 
 /**
- * @author Nestor
  * @version 2022-23
  */
 public class DijkstraDataClass {
