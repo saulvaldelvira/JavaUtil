@@ -16,25 +16,25 @@ import saulv.collections.list.LinkedList;
 
 public abstract class FileUtil {
 
-	public FileUtil() {
+	String filename;
+	
+	public FileUtil(String filename) {
 		super();
+		this.filename = filename;
 	}
 
-	public List<String> readLines(String inFileName) throws FileNotFoundException {
+	public List<String> readLines() throws FileNotFoundException {
 			List<String> res = new LinkedList<>();
 			
 			try {
-//				1-Crear el flujo de entrada (stream)
-				BufferedReader in = createReader(inFileName);
+				BufferedReader in = createReader(filename);
 				
-//				2-Leer los datos	
 				try {
 					while(in.ready()) {
 						String line = in.readLine();
 						res.add(line);
 					}
 				}finally {
-	//				3-Cerrar el flujo (aunque se produzca error)	
 					in.close();
 				}
 			}catch(FileNotFoundException e) {
@@ -48,19 +48,30 @@ public abstract class FileUtil {
 
 	abstract BufferedReader createReader(String inFileName) throws IOException;
 
-	public void writeLines(String outFileName, List<String> lines) throws FileNotFoundException {
+	public void writeLine(String line) {
+		try {
+			BufferedWriter out = createWriter(filename);
+			try {
+				out.write(line);
+				out.newLine();
+			}finally {
+				out.close();
+			}
+		}catch(IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public void writeLines(List<String> lines) throws FileNotFoundException {
 	
 			try {
-	//			1-Crear flujo
-				BufferedWriter out = createWriter(outFileName);
-	//			2-Escribir
+				BufferedWriter out = createWriter(filename);
 				try {
 					for(String line: lines) {
 						out.write(line);
 						out.newLine();
 					}
 				}finally {
-	//				3-Cerrar el flujo 
 					out.close();
 				}
 			}catch(IOException e) {

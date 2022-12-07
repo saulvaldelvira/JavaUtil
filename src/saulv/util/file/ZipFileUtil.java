@@ -29,6 +29,10 @@ import java.util.zip.GZIPOutputStream;
  */
 public class ZipFileUtil extends FileUtil {
 
+	public ZipFileUtil(String outputFile) {
+		super(outputFile);
+	}
+
 	@Override 
 	BufferedReader createReader(String inFileName) throws IOException  {
 		 return new BufferedReader(

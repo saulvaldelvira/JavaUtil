@@ -22,6 +22,10 @@ import java.io.IOException;
  */
 public class TxtFileUtil extends FileUtil {
 
+	public TxtFileUtil(String outputFile) {
+		super(outputFile);
+	}
+
 	@Override
 	BufferedReader createReader(String inFileName) throws FileNotFoundException {
 		return new BufferedReader(new FileReader(inFileName));
